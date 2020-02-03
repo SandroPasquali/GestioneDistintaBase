@@ -105,10 +105,18 @@ public class Model {
 	
 	*/
 	public void doMultilevelImplosion(String root,int lvl) {
+		final int IMPLOSION = 1;
+		int TYPE_QUERY = IMPLOSION;
 		DiBaDAO dao= new DiBaDAO();
-		final int TYPE_OF_QRY=1;
-		dao.recursiveBOMImplosion(root,idMap);
+		
+		dibaBeanList = dao.recursiveBOMImplosion(root);
+		
+		
 		buildSimpleDirectedGraphV03(root,TYPE_QUERY); //TODO OCCHIO
+		
+		
+		
+		
 		
 		BreadthFirstIterator<String,DefaultEdge> bfi = new BreadthFirstIterator<String,DefaultEdge>(this.g,root);
 		int currentLevel=-1;
@@ -127,8 +135,7 @@ public class Model {
 
 	public void buildSimpleDirectedGraphV03(String root,int typeOfQry) {
 		
-		//DiBaDAO dao = new DiBaDAO();
-		//dao.recursiveBOMExplosion(root, idMap);
+		
 		
 		//System.out.println("nr di elementi nella lista: "+dibaBeanList.size());
 		

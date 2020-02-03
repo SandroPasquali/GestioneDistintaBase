@@ -12,7 +12,7 @@ import org.jgrapht.traverse.BreadthFirstIterator;
 
 import db.DiBaDAO;
 import excel.WriteExcel;
-import gestionediba.model.BOMManager;
+
 import gestionediba.model.DiBaBean;
 import gestionediba.model.Model;
 import gestionediba.model.RootLeveBean;
@@ -27,7 +27,8 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		
-		testMultilevelExplosion();
+		//testMultilevelExplosion();
+		testMultileveImplosion();
 		
 		//g=model.getG();
 		//model.printGraph();
@@ -66,13 +67,16 @@ public class Main {
 
 
 	private static void testMultileveImplosion() {
-		BOMManager bm = new BOMManager();
+		//BOMManager bm = new BOMManager();
 		//String root="770453"; // esempio di PF a 6 livelli
 		//String root="011013"; //esempio di PF
 		//String root="3100200"; 
 		String root="mp1"; 
 		//String root="pf1"; 
-		bm.doMultilevelImplosion(root, 99);
+		
+		model = new Model();
+		model.doMultilevelImplosion(root, 99);
+		model.printGraph();
 		
 	}
 
